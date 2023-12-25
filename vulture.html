@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="veiwport" content="width=device-width,initial-scale=1.0">
+    <title>Black culture</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+<script>
+    let currentIndex = 0;
+
+function showNextSlide() {
+    const slides = document.getElementsByClassName('slide');
+
+    slides[currentIndex].style.opacity = 0;
+
+    currentIndex++;
+
+    if (currentIndex >= slides.length) {
+        currentIndex = 0;
+    }
+
+    slides[currentIndex].style.opacity = 1;
+}
+
+// Show the next slide every 3 seconds
+setInterval(showNextSlide, 2000);
+</script>
+
+
+
+    <style>
+        /* Reset some default browser styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.6;
+}
+img {
+            width: 50%;
+            height: auto;
+}
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style the main content */
+main {
+    padding: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style the slider */
+.slider {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+img {
+            width: 10%;
+            height: 50px;
+}
+.slide:first-child {
+    opacity: 1;
+}
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <h1>Black Culture</h1>
+    </header>
+    <main>
+        <div class="slider">
+            <img src="afrikka 1.jpeg" alt="black person 1" class="slide">
+            <img src="afrikka 2.jpeg" alt="black person 2" class="slide">
+            <img src="afrikka 3.jpeg" alt="black person 3" class="slide">
+            <img src="afrikka 4.jpeg" alt="black person 4" class="slide">
+            <img src="afrikka 5.jpeg" alt="black person 5" class="slide">
+        </div>
+
+        <section>
+            <h2>Black is impacted</h2>
+            <p>when you say something is impacted you are basically talking about black people,we've made so many belittled impacts on the world
+                in such a way that it can't go unoticed.When you hear black shines brightest cause we are being forced to keep our heads down so
+                much cause our light is so different,we human beings are allowed to shine but because we are black we are told that our light don't
+                matter.In the end they realize our lights cant be hidden cause its too bright ,they take our creativity and give they new names and 
+                call them there inventions ,making us look so unipacted and useless in the end they find out.
+            </p>
+        <section>
+            <h2>Black Poetry</h2>
+            <p>Black poetry refers to poems written by african americans in the United states of America.it is a sub-section of african
+                American literature filled with cadence,intentional repetition and alliteration.African American poetry predates the 
+                written word and is linked to rich oral tradition.Black poetry draws its inspiration from musical traditions such as gospel,
+                blues,jazz and rap.Black poems are inextricably linked to the experience of African Americans through their history in Americans 
+                through their history in America, from slavery to segregation and the equal rights movement.
+            </p>
+        </section>
+        <section>
+            <h2>poetry</h2>
+            <p>mercy brought me from my pagan land,taught my benighted soul to understand that there's God ,that theres a saviour
+                too:Once i redemtion neither sought nor knew......
+
+                We shine with resilience,strength, and beauty that radiates from within,our culture, history and contributions to the world makes us shine
+                bright.We defy stereotypes,break barriers , and inspires others with our accomplishments.our melanin is a source of pride, representing our
+                rich heritage and diversity .We shine as individuals, united in our shared experiences and the power of our voices. "KEEP SHINING"
+            </p>
+        </section>
+        <section>
+            <h3>Why We Die</h3>
+            <p>The main cause of deaths of black people is§1
+
+
+
+
+
+            </p>
+        </section>
+
+
+        
+    </main>
+    <footer>
+        <p>&copy;2022 black culture.All rights Reserved.</p>
+    </footer>
+</body>
+
+
+
+</html>

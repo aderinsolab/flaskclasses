@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+
+    <style>
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #494b50;
+        }
+
+        header {
+            background-color: #0c0c0c;
+            color: #fefdfd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #323235;
+            border: 1px solid #cbc2c2;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center; /* Center align the content */
+        }
+
+        .product img {
+            max-width: 100%; /* Make sure the image doesn't exceed the container width */
+            height: auto; /* Maintain the aspect ratio */
+            margin-bottom: 10px; /* Add some spacing between the image and other elements */
+        }
+
+        button {
+            background-color: #ede4e4;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #ecdcdc;
+            color: #fff;
+            padding: 10px;
+            display: none;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(231, 217, 217, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #checkout-btn {
+            background-color: #5cb85c;
+            color: #fff;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .product:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+button {
+    /* ... (your existing styles) */
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #5cb85c; /* Change to a different color on hover */
+    transform: scale(1.1);
+}
+.modal {
+    /* ... (your existing styles) */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+body::before {
+    /* ... (your existing styles) */
+    animation: starsAnimation 20s linear infinite;
+}
+
+@keyframes starsAnimation {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(100px, 100px);
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+}
+
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.particle {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 5s infinite ease-in-out, rotate 10s infinite linear;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #383838; /* Dark asphalt color */
+}
+
+header {
+    background-color: #0c0c0c;
+    color: #fefdfd;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.product {
+    background: linear-gradient(to bottom, #cec7c7, #323235);
+    border: 1px solid #cbc2c2;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    transform-origin: center bottom;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.product p {
+    color: #ddd;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #ede4e4;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ecdcdc;
+    color: #333;
+    padding: 10px;
+    display: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(231, 217, 217, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#checkout-btn {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#checkout-btn:hover {
+    background-color: #4ca74c;
+}
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #383838; /* Dark asphalt color */
+}
+
+header {
+    background-color: #0c0c0c;
+    color: #fefdfd;
+    padding: 20px; /* Increased padding for better visual */
+    text-align: center;
+    border-bottom: 2px solid #7d7d7d; /* Border for separation from main content */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin for h1 */
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.product {
+    background: linear-gradient(to bottom, #4e4e4e, #323235);
+    border: 1px solid #cbc2c2;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    transform-origin: center bottom;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.product p {
+    color: #ddd;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #ede4e4;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ecdcdc;
+    color: #333;
+    padding: 10px;
+    display: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(231, 217, 217, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#checkout-btn {
+    background-color: #5cb85c;
+    color: 
+}
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #383838; /* Dark asphalt color */
+}
+
+header {
+    background-color: #0c0c0c;
+    color: #fefdfd;
+    padding: 20px; /* Increased padding for better visual */
+    text-align: center;
+    border-bottom: 2px solid #7d7d7d; /* Border for separation from main content */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin for h1 */
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.product {
+    background: linear-gradient(to bottom, #4e4e4e, #323235);
+    border: 1px solid #cbc2c2;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    transform-origin: center bottom;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.product p {
+    color: #ddd;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #ede4e4;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ecdcdc;
+    color: #333;
+    padding: 10px;
+    display: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(231, 217, 217, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#checkout-btn {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#checkout-btn:hover {
+    background-color: #4ca74c;
+}
+
+/* Add spin animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 1s linear;
+}
+header {
+    background: linear-gradient(to right, #0c0c0c, #1f1f1f);
+    color: #fefdfd;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #7d7d7d;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-position 0.5s ease-in-out;
+}
+
+header:hover {
+    background-position: 50% 10%;
+}
+
+/* Bats animation */
+@keyframes flyingBats {
+    0% {
+        transform: translateY(0) translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Bat styles */
+.bats {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bat {
+    position: absolute;
+    background-image: url('afrikka 2.jpeg'); /* Replace with the path to your bat image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    animation: flyingBats 5s infinite;
+}
+
+/* Adjust bat positions */
+.bat:nth-child(1) {
+    top: 20%;
+    left: 20%;
+}
+
+.bat:nth-child(2) {
+    top: 40%;
+    left: 60%;
+}
+
+.bat:nth-child(3) {
+    top: 70%;
+    left: 80%;
+}
+#checkout-form {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #checkout-form input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        #calculate-shipping {
+            background-color: #5cb85c;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            width: 50%;
+        }
+
+        /* New style for moving popup */
+        #new-merch-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 100%; /* Start from the right side of the screen */
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            animation: movePopup 5s linear infinite; /* Adjust the animation duration as needed */
+        }
+
+        #close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Animation keyframes */
+        @keyframes movePopup {
+            0% { left: 100%; }
+            50% { left: 50%; }
+            100% { left: 0; }
+        }
+         body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #383838; /* Dark asphalt color */
+            color: #ddd; /* Text color */
+        }
+
+        /* Your existing styles go here */
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0c0c0c;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #ants-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999; /* Ensure ants are on top of other elements */
+        }
+
+        .ant {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            transform-origin: 50% 50%;
+            animation: crawl 5s linear infinite;
+        }
+
+        @keyframes crawl {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100%, 0) rotate(90deg);
+            }
+            50% {
+                transform: translate(100%, 100%) rotate(180deg);
+            }
+            75% {
+                transform: translate(0, 100%) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        header {
+            position: relative;
+            background-color: #0c0c0c;
+            color: #fefdfd;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #logo {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .cube-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .cube {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            transform-origin: center center;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Example button with click sound
+<button onclick="addToCart('Classic T-Shirt', 20.00)" class="clickable">Add to Cart</button> -->
+
+    <div id="new-merch-popup">
+        <span id="close-popup" onclick="closePopup()">X</span>
+        <h2>New Merchandise Coming Soon!</h2>
+        <p>Stay tuned for our latest and greatest products!</p>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <!-- Your existing modal content here -->
+            <h2>Shipping Information</h2>
+            <div id="checkout-form">
+                <label for="country">Country:</label>
+                <input type="text" id="country" placeholder="Enter your country" required>
+
+                <label for="zipcode">Zip Code:</label>
+                <input type="text" id="zipcode" placeholder="Enter your zip code" required>
+
+                <button id="calculate-shipping" onclick="calculateShipping()">Calculate Shipping</button>
+               
+                    <div id="checkout-summary"></div>
+            </div>
+        </div>
+    </div>
+
+<header>
+    <h1>ADERINSOLA'S Clothing Store</h1>
+</header>
+
+<main>
+    <div id="particles"></div>
+    <div id="tiny-man"></div>
+    <div class="cube-container">
+        <!-- Create multiple cubes dynamically using JavaScript -->
+    </div>
+    
+
+    <div class="product">
+        <img src="Cotton T-Shirt.jpg" alt="Shirt 1">
+        <h2>Classic T-Shirt</h2>
+        <p>$20.00</p>
+        <button onclick="addToCart('Classic T-Shirt', 20.00)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="img5.png" alt="Shirt 2">
+        <h2>Graphic Tee</h2>
+        <p>$25.00</p>
+        <button onclick="addToCart('Graphic Tee', 25.00)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="img7.jpg" alt="shirt 3">
+        <h2>Classic T-Shirt</h2>
+        <p>$300.00</p>
+        <button onclick="addToCart('Classic T-Shirt', 300.00)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="img6.jpg" alt="shirt 3">
+        <h2>coobies shirts</h2>
+        <p>$40.00</p>
+        <button onclick="addToCart('Classic T-Shirt', 40.00)">Add to Cart</button>
+    </div>
+    
+    <div class="product">
+        <img src="Cotton T-Shirt.jpg" alt="shirt 3">
+        <h2>plain black tee</h2>
+        <p>$60.00</p>
+        <button onclick="addToCart('Classic T-Shirt', 60.00)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="Black Cargo Shorts - Small.jpg" alt="shorts 2">
+        <h2>Cool Shorts</h2>
+        <p>$39.99</p>
+        <button onclick="addToCart('Classic T-Shirt', 40.00)">Add to Cart</button>
+    </div>
+
+    <!-- Add more products as needed -->
+</main>
+<div class="product"></div>
+<div id="cart" onclick="openModal()">Cart is empty</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total: $0.00</p>
+        <button id="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+</div>
+
+<script>
+    // Cart array to store added items
+    const cart = [];
+
+    // Function to add item to cart
+    function addToCart(productName, price) {
+        cart.push({ productName, price });
+        updateCart();
+        alert(`Added ${productName} to cart. Total Price: $${price}`);
+    }
+
+    // Function to update cart display
+    function updateCart() {
+        const cartElement = document.getElementById('cart');
+        if (cart.length > 0) {
+            cartElement.style.display = 'block';
+            cartElement.textContent = `Cart (${cart.length} items)`;
+        } else {
+            cartElement.style.display = 'none';
+            cartElement.textContent = 'Cart is empty';
+        }
+    }
+
+    // Function to open the modal
+    function openModal() {
+        const modal = document.getElementById('modal');
+        const cartItemsElement = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+
+        // Clear previous content
+        cartItemsElement.innerHTML = '';
+
+        // Populate modal with cart items
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.productName} - $${item.price.toFixed(2)}`;
+            cartItemsElement.appendChild(li);
+        });
+
+        // Calculate and display total price
+        const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+        totalPriceElement.textContent = `Total: $${totalPrice.toFixed(2)}`;
+
+        modal.style.display = 'flex';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+    }
+
+    // Function to handle checkout
+    function checkout() {
+        alert('Checkout complete! Thank you for shopping with us!');
+        // Clear the cart after checkout
+        cart.length = 0;
+        updateCart();
+        closeModal();
+    }
+    function calculateShipping() {
+            const country = document.getElementById('country').value;
+            const zipcode = document.getElementById('zipcode').value;
+
+            // Perform shipping calculation logic based on country and zipcode
+            // For simplicity, let's assume a flat rate for shipping
+            const shippingCost = 1500.00;
+
+            const totalPriceElement = document.getElementById('total-price');
+            const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+            const totalWithShipping = totalPrice + shippingCost;
+
+            // Display updated total price with shipping
+            totalPriceElement.textContent = `Total: $${totalWithShipping.toFixed(2)}`;
+
+            alert(`Shipping to ${country}, ${zipcode} calculated. Shipping cost: $${shippingCost.toFixed(2)}`);
+        }
+
+        function openModal() {
+            const modal = document.getElementById('modal');
+            const cartItemsElement = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            // Clear previous content
+            cartItemsElement.innerHTML = '';
+
+            // Populate modal with cart items
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.productName} - $${item.price.toFixed(2)}`;
+                cartItemsElement.appendChild(li);
+            });
+
+            // Calculate and display total price
+            const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+            totalPriceElement.textContent = `Total: $${totalPrice.toFixed(2)}`;
+
+            // Display the checkout form
+            document.getElementById('checkout-form').style.display = 'flex';
+
+            modal.style.display = 'flex';
+        }
+        function calculateShipping() {
+            const country = document.getElementById('country').value;
+            const zipcode = document.getElementById('zipcode').value;
+
+            // Perform shipping calculation logic based on country and zipcode
+            // For simplicity, let's assume a flat rate for shipping
+            const shippingCost = 10.00;
+
+            const totalPriceElement = document.getElementById('total-price');
+            const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+            const totalWithShipping = totalPrice + shippingCost;
+
+            // Display updated total price with shipping
+            totalPriceElement.textContent = `Total: $${totalWithShipping.toFixed(2)}`;
+
+            // Display detailed summary
+            const summaryElement = document.getElementById('checkout-summary');
+            summaryElement.innerHTML = `
+                <h3>Order Summary</h3>
+                <p>Total Items: ${cart.length}</p>
+                <p>Total Price: $${totalPrice.toFixed(2)}</p>
+                <p>Shipping to: ${country}, ${zipcode}</p>
+                <p>Shipping Cost: $${shippingCost.toFixed(2)}</p>
+                <p><strong>Total with Shipping: $${totalWithShipping.toFixed(2)}</strong></p>
+            `;
+
+            alert(`Shipping to ${country}, ${zipcode} calculated. Shipping cost: $${shippingCost.toFixed(2)}`);
+        }
+
+        function openModal() {
+            const modal = document.getElementById('modal');
+            const cartItemsElement = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            // Clear previous content
+            cartItemsElement.innerHTML = '';
+
+            // Populate modal with cart items
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.productName} - $${item.price.toFixed(2)}`;
+                cartItemsElement.appendChild(li);
+            });
+
+            // Calculate and display total price
+            const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+            totalPriceElement.textContent = `Total: $${totalPrice.toFixed(2)}`;
+
+            // Display the checkout form
+            document.getElementById('checkout-form').style.display = 'flex';
+
+            modal.style.display = 'flex';
+        }
+        function changeColor(imageUrl) {
+            const productImage = document.getElementById('product-image');
+            productImage.src = imageUrl;
+        }
+        function createAnt() {
+            const ant = document.createElement('div');
+            ant.classList.add('ant');
+            ant.style.left = Math.random() * 100 + 'vw';
+            ant.style.top = Math.random() * 100 + 'vh';
+
+            ant.addEventListener('click', () => {
+                ant.remove(); // Remove the ant when clicked (squashed)
+            });
+
+            document.getElementById('ants-container').appendChild(ant);
+        }
+
+        // Create ants periodically
+        setInterval(createAnt, 3000);
+
+        const cubeContainer = document.querySelector('.cube-container');
+
+    for (let i = 0; i < 30; i++) {
+        const cube = document.createElement('div');
+        cube.className = 'cube';
+        cube.style.left = `${Math.random() * 100}vw`;
+        cube.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        cubeContainer.appendChild(cube);
+    }
+    function playClickSound() {
+    const clickSound = document.getElementById('clickSound');
+    clickSound.currentTime = 0; // Rewind the sound to the beginning
+    clickSound.play();
+  }
+
+  // Function to add item to cart
+  function addToCart(productName, price) {
+    cart.push({ productName, price });
+    updateCart();
+    playClickSound(); // Play the click sound
+    alert(`Added ${productName} to cart. Total Price: $${price}`);
+  }
+
+//         // New function to show the new merchandise popup
+//         function showNewMerchPopup() {
+//             const popup = document.getElementById('new-merch-popup');
+//             popup.style.display = 'block';
+//         }
+
+//         // New function to close the popup
+//         function closePopup() {
+//             const popup = document.getElementById('new-merch-popup');
+//             popup.style.display = 'none';
+//         }
+
+//         // Call the showNewMerchPopup function after a delay (e.g., 5 seconds)
+//         setTimeout(showNewMerchPopup, 5000);
+
+//         function changeColor(imageUrl) {
+//             const productImage = document.getElementById('product-image');
+//             productImage.src = imageUrl;
+//         }
+
+//         // New function to show the new merchandise popup
+//         function showNewMerchPopup() {
+//             const popup = document.getElementById('new-merch-popup');
+//             popup.style.display = 'block';
+//         }
+
+//          // Set a timeout to hide the popup after 10 seconds
+//          setTimeout(() => {
+//             popup.style.display = 'none';
+//         }, 10000); // 10 seconds (10000 milliseconds)
+
+//          // New function to close the popup
+//     function closePopup() {
+//         const popup = document.getElementById('new-merch-popup');
+//         popup.style.display = 'none';
+//     }
+
+//         // New function to close the popup
+//         function closePopup() {
+//             const popup = document.getElementById('new-merch-popup');
+//             popup.style.display = 'none';
+//         }
+
+//         // Call the showNewMerchPopup function after a delay (e.g., 5 seconds)
+//         setTimeout(showNewMerchPopup, 5000);
+// </script>
+
+<footer>
+    <p>&copy; 2023 Aderinsola's Clothing Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+
